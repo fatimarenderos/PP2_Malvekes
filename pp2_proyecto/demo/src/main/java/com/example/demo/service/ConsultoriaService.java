@@ -22,19 +22,23 @@ public class ConsultoriaService implements IConsultoriaService {
 
 	@Override
 	public Optional<Consultoria> listarId(int id) {
-		// TODO Auto-generated method stub
-		return Optional.empty();
+
+		return data.findById(id);
 	}
 
 	@Override
 	public int save(Consultoria c) {
-		// TODO Auto-generated method stub
+		int res=0;
+		Consultoria consultoria =data.save(c);
+		if(!consultoria.equals(null)) {
+			res=1;
+		}
 		return 0;
 	}
 
 	@Override
 	public void delete(int id) {
-		// TODO Auto-generated method stub
+		data.deleteById(id);
 		
 	}
 
